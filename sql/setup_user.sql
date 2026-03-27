@@ -15,12 +15,12 @@ CREATE ROLE rpimon LOGIN PASSWORD 'TROCAR_SENHA';
 
 -- 4. Garante acesso ao schema (será criado pelo schema.sql)
 GRANT USAGE ON SCHEMA rpi_monitor TO rpimon;
-GRANT SELECT, INSERT ON ALL TABLES IN SCHEMA rpi_monitor TO rpimon;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA rpi_monitor TO rpimon;
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA rpi_monitor TO rpimon;
+GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA rpi_monitor TO rpimon;
 
 -- Garante que objetos futuros criados no schema também sejam acessíveis
 ALTER DEFAULT PRIVILEGES IN SCHEMA rpi_monitor
-    GRANT SELECT, INSERT ON TABLES TO rpimon;
+    GRANT SELECT, INSERT, UPDATE ON TABLES TO rpimon;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA rpi_monitor
-    GRANT USAGE, SELECT ON SEQUENCES TO rpimon;
+    GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO rpimon;
